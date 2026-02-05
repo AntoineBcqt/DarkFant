@@ -12,15 +12,27 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Cette méthode sera appelée par l'Input System
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("Bouton Interact pressé !");
+            // On cherche le Mentor dans la scène
+            MentorNPC mentor = Object.FindFirstObjectByType<MentorNPC>();
+            if (mentor != null)
+            {
+                mentor.Interact();
+            }
+        }
+    }
+
     void FixedUpdate()
     {
-        // On applique la vélocité (logique physique)
         rb.linearVelocity = moveInput * moveSpeed;
     }
 }
