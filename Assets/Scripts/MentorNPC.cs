@@ -14,9 +14,22 @@ public class MentorNPC : MonoBehaviour
     public CinemachineCamera vcam;
     public Light2D globalLight;
     public float shakeIntensity = 3f;
+    public float twistDuration = 2.5f;
 
     private int index = 0;
     private bool playerInRange = false;
+
+    private Color initialColor;
+    private float initialIntensity;
+
+    void Start()
+    {
+        if (globalLight != null)
+        {
+            initialColor = globalLight.color;
+            initialIntensity = globalLight.intensity;
+        }
+    }
 
     public void Interact()
     {
@@ -64,7 +77,24 @@ public class MentorNPC : MonoBehaviour
             }
         }
 
-        Debug.Log("SÉISME ! Le Fléau arrive.");
+        Invoke("ResetScene", twistDuration);
+    }
+
+    void ResetScene()
+    {
+        if (vcam != null)
+        {
+            var noise = vcam.GetComponent<CinemachineBasicMultiChannelPerlin>();
+            if (noise != null) noise.AmplitudeGain = 0;
+        }
+
+        if (globalLight != null)
+        {
+            globalLight.color = initialColor;
+            globalLight.intensity = initialIntensity;
+        }
+
+        Debug.Log("Reset terminé. Le mentor est parti, la lumière est revenue.");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
