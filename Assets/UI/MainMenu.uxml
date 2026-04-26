@@ -1,0 +1,38 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=f6c628c8eb3366e4e80b9826aaeb2821&amp;type=3#MainMenu"/>
+    <ui:VisualElement name="root" class="root">
+        <ui:VisualElement name="stars-layer" class="stars-layer"/>
+        <ui:VisualElement name="top-stalactites" class="stalactites-top">
+            <ui:VisualElement class="stal stal-1"/>
+            <ui:VisualElement class="stal stal-2"/>
+            <ui:VisualElement class="stal stal-3"/>
+            <ui:VisualElement class="stal stal-4"/>
+            <ui:VisualElement class="stal stal-5"/>
+            <ui:VisualElement class="stal stal-6"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="menu-container" class="menu-container">
+            <ui:VisualElement name="title-block" class="title-block">
+                <ui:Label name="title-line1" text="DARK" class="game-title"/>
+                <ui:Label name="title-line2" text="FANT" class="game-title"/>
+                <ui:Label name="subtitle" text="— un signal de détresse —" class="game-subtitle"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="menu-frame" class="menu-frame">
+                <ui:VisualElement class="corner-crystal corner-tl"/>
+                <ui:VisualElement class="corner-crystal corner-tr"/>
+                <ui:VisualElement class="corner-crystal corner-bl"/>
+                <ui:VisualElement class="corner-crystal corner-br"/>
+                <ui:Button name="btn-start" text="START" class="menu-btn btn-start"/>
+                <ui:VisualElement class="pixel-divider"/>
+                <ui:Button name="btn-options" text="OPTIONS" class="menu-btn btn-options"/>
+            </ui:VisualElement>
+            <ui:Label name="version-label" text="v0.1.0 — alpha build" class="version-tag"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom-stalactites" class="stalactites-bottom">
+            <ui:VisualElement class="stalag stalag-1"/>
+            <ui:VisualElement class="stalag stalag-2"/>
+            <ui:VisualElement class="stalag stalag-3"/>
+            <ui:VisualElement class="stalag stalag-4"/>
+            <ui:VisualElement class="stalag stalag-5"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
