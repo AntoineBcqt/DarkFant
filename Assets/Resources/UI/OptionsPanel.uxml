@@ -1,0 +1,80 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="options-overlay" class="options-overlay">
+
+        <ui:VisualElement name="options-panel" class="options-panel">
+
+            <!-- Coins pixel -->
+            <ui:VisualElement class="corner-crystal corner-tl" />
+            <ui:VisualElement class="corner-crystal corner-tr" />
+            <ui:VisualElement class="corner-crystal corner-bl" />
+            <ui:VisualElement class="corner-crystal corner-br" />
+
+            <!-- Titre -->
+            <ui:Label name="options-title" text="OPTIONS" class="options-title" />
+            <ui:VisualElement class="options-divider" />
+
+            <!-- AUDIO -->
+            <ui:Label text="AUDIO" class="section-label" />
+
+            <ui:VisualElement class="option-row">
+                <ui:Label text="Musique" class="option-label" />
+                <ui:Slider name="slider-music" low-value="0" high-value="1" value="0.7" class="option-slider" />
+                <ui:Label name="label-music-val" text="70" class="option-value" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="option-row">
+                <ui:Label text="SFX" class="option-label" />
+                <ui:Slider name="slider-sfx" low-value="0" high-value="1" value="1" class="option-slider" />
+                <ui:Label name="label-sfx-val" text="100" class="option-value" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="options-divider" />
+
+            <!-- AFFICHAGE -->
+            <ui:Label text="AFFICHAGE" class="section-label" />
+
+            <ui:VisualElement class="option-row">
+                <ui:Label text="Plein écran" class="option-label" />
+                <ui:Toggle name="toggle-fullscreen" class="option-toggle" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="option-row">
+                <ui:Label text="Résolution" class="option-label" />
+                <ui:DropdownField name="dropdown-resolution" class="option-dropdown" />
+            </ui:VisualElement>
+
+            <ui:VisualElement class="options-divider" />
+
+            <!-- CONTRÔLES -->
+            <ui:Label text="CONTRÔLES" class="section-label" />
+
+            <ui:VisualElement class="controls-grid">
+                <ui:VisualElement class="control-row">
+                    <ui:Label text="Attaquer" class="control-label" />
+                    <ui:Label text="A" class="control-key" />
+                </ui:VisualElement>
+                <ui:VisualElement class="control-row">
+                    <ui:Label text="Dash" class="control-label" />
+                    <ui:Label text="B" class="control-key" />
+                </ui:VisualElement>
+                <ui:VisualElement class="control-row">
+                    <ui:Label text="Compétence" class="control-label" />
+                    <ui:Label text="Y" class="control-key" />
+                </ui:VisualElement>
+                <ui:VisualElement class="control-row">
+                    <ui:Label text="Interagir" class="control-label" />
+                    <ui:Label text="X" class="control-key" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="options-divider" />
+
+            <!-- Boutons bas -->
+            <ui:VisualElement class="options-buttons">
+                <ui:Button name="btn-apply" text="APPLIQUER" class="options-btn btn-apply" />
+                <ui:Button name="btn-close" text="FERMER" class="options-btn btn-close" />
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
