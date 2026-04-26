@@ -3,82 +3,113 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// HUD d'un combattant : HP avec ghost bar, MP, Limit Break, et animations.
+/// </summary>
 public class BattleHUD : MonoBehaviour
 {
-    [Header("References")]
+    [Header("Nom")]
     public TextMeshProUGUI nameText;
+
+    [Header("HP")]
+    public Slider          hpSlider;
+    public Slider          ghostSlider;
     public TextMeshProUGUI hpText;
-    public Slider hpSlider;
-    public Slider ghostSlider;   // barre fantôme (rouge, derrière)
 
-    private HealthSystem _health;
-    private Coroutine _ghostRoutine;
-    private Coroutine _dangerRoutine;
+    [Header("MP")]
+    public Slider          mpSlider;
+    public TextMeshProUGUI mpText;
+
+    [Header("Limit Break")]
+    public Slider          limitSlider;
+    public TextMeshProUGUI limitText;
+    public GameObject      limitReadyFX;   // optionnel : flash/glow quand prête
+
+    // ── Runtime ──────────────────────────────────────────────────
+    private Coroutine    _ghostRoutine;
+    private Coroutine    _dangerRoutine;
+    private Coroutine    _limitPulse;
     private RectTransform _rt;
-    private Vector2 _originPos;
+    private Vector2       _originPos;
 
-    // ── Setup ─────────────────────────────────────────────────────
+    // ─────────────────────────────────────────────────────────────
 
-    public void Setup(HealthSystem health)
+    public void Setup(BattleUnit unit)
     {
-        _health = health;
-        _rt = GetComponent<RectTransform>();
-        _originPos = _rt.anchoredPosition;
+        _rt        = GetComponent<RectTransform>();
+        _originPos = _rt != null ? _rt.anchoredPosition : Vector2.zero;
 
-        nameText.text = health.unitName;
-        hpSlider.maxValue  = health.maxHP;
-        if (ghostSlider != null) ghostSlider.maxValue = health.maxHP;
-        Refresh();
+        if (nameText != null) nameText.text = unit.unitName;
+
+        // HP
+        if (hpSlider   != null) { hpSlider.maxValue   = unit.maxHP;         hpSlider.value   = unit.CurrentHP; }
+        if (ghostSlider != null) { ghostSlider.maxValue = unit.maxHP;        ghostSlider.value = unit.CurrentHP; }
+
+        // MP
+        if (mpSlider != null) { mpSlider.maxValue = unit.maxMP; mpSlider.value = unit.CurrentMP; }
+
+        // Limit
+        if (limitSlider != null) { limitSlider.maxValue = unit.limitBreakMax; limitSlider.value = 0; }
+        if (limitReadyFX != null) limitReadyFX.SetActive(false);
+
+        RefreshHP(unit);
+        RefreshMP(unit);
+        RefreshLimit(unit);
     }
 
-    // ── Refresh normal (sans animation) ──────────────────────────
+    // ── Refresh ──────────────────────────────────────────────────
 
-    public void Refresh()
+    public void RefreshHP(BattleUnit unit)
     {
-        if (_health == null) return;
-        float ratio = _health.Ratio;
+        if (hpSlider != null) hpSlider.value = unit.CurrentHP;
+        if (hpText   != null) hpText.text    = $"{unit.CurrentHP} / {unit.maxHP}";
+        SetFillColor(hpSlider, HealthColor(unit.HPRatio));
 
-        hpSlider.value = _health.currentHP;
-        hpText.text = $"{_health.currentHP} / {_health.maxHP}";
-
-        // Couleur barre principale : vert → orange → rouge
-        SetFillColor(hpSlider, HealthColor(ratio));
-
-        // Danger pulsé sous 20%
-        if (ratio < 0.20f)
-            StartDangerPulse();
-        else
-            StopDangerPulse();
+        if (unit.HPRatio < 0.20f) StartDangerPulse();
+        else                      StopDangerPulse(unit);
     }
 
-    // ── Prise de dégâts avec ghost bar ───────────────────────────
-
-    public void AnimateDamage(bool shake = false)
+    public void RefreshMP(BattleUnit unit)
     {
-        if (_health == null) return;
+        if (mpSlider != null) mpSlider.value = unit.CurrentMP;
+        if (mpText   != null) mpText.text    = $"{unit.CurrentMP} / {unit.maxMP}";
+    }
 
-        float oldValue = hpSlider.value;
-        float newValue = _health.currentHP;
+    public void RefreshLimit(BattleUnit unit)
+    {
+        if (limitSlider != null) limitSlider.value = unit.LimitBreak;
+        if (limitText   != null) limitText.text    = unit.IsLimitReady ? "PRÊTE !" : $"{unit.LimitBreak} / {unit.limitBreakMax}";
+        SetFillColor(limitSlider, unit.IsLimitReady
+            ? new Color(1f, 0.85f, 0.1f)
+            : new Color(0.6f, 0.3f, 0.9f));
+    }
 
-        // Barre principale : descente instantanée
-        hpSlider.value = newValue;
-        hpText.text = $"{(int)newValue} / {_health.maxHP}";
-        SetFillColor(hpSlider, HealthColor(_health.Ratio));
+    public void OnLimitReady()
+    {
+        if (limitReadyFX != null) limitReadyFX.SetActive(true);
+        if (_limitPulse  != null) StopCoroutine(_limitPulse);
+        _limitPulse = StartCoroutine(LimitPulse());
+    }
 
-        // Ghost bar : reste à l'ancienne valeur, descend en 1s
+    // ── Dégâts animés ────────────────────────────────────────────
+
+    public void AnimateDamage(BattleUnit unit, bool shake = false)
+    {
+        float oldHP = ghostSlider != null ? ghostSlider.value : unit.CurrentHP;
+
+        RefreshHP(unit);
+
         if (ghostSlider != null)
         {
-            ghostSlider.value = oldValue;
+            ghostSlider.value = oldHP;
             if (_ghostRoutine != null) StopCoroutine(_ghostRoutine);
-            _ghostRoutine = StartCoroutine(DrainGhost(oldValue, newValue));
+            _ghostRoutine = StartCoroutine(DrainGhost(oldHP, unit.CurrentHP));
         }
 
-        if (shake) StartCoroutine(ShakeHUD());
-
-        if (_health.Ratio < 0.20f) StartDangerPulse();
+        if (shake && _rt != null) StartCoroutine(ShakeHUD());
     }
 
-    // ── Ghost bar coroutine ───────────────────────────────────────
+    // ── Coroutines ───────────────────────────────────────────────
 
     IEnumerator DrainGhost(float from, float to)
     {
@@ -87,16 +118,15 @@ public class BattleHUD : MonoBehaviour
         while (elapsed < 1f)
         {
             elapsed += Time.deltaTime;
-            ghostSlider.value = Mathf.Lerp(from, to, elapsed);
+            if (ghostSlider != null) ghostSlider.value = Mathf.Lerp(from, to, elapsed);
             yield return null;
         }
-        ghostSlider.value = to;
+        if (ghostSlider != null) ghostSlider.value = to;
     }
-
-    // ── HUD Shake ─────────────────────────────────────────────────
 
     public IEnumerator ShakeHUD(float intensity = 6f, float duration = 0.35f)
     {
+        if (_rt == null) yield break;
         float elapsed = 0f;
         while (elapsed < duration)
         {
@@ -108,20 +138,18 @@ public class BattleHUD : MonoBehaviour
         _rt.anchoredPosition = _originPos;
     }
 
-    // ── Danger pulse (<20% HP) ────────────────────────────────────
-
     void StartDangerPulse()
     {
         if (_dangerRoutine != null) return;
         _dangerRoutine = StartCoroutine(DangerPulse());
     }
 
-    void StopDangerPulse()
+    void StopDangerPulse(BattleUnit unit)
     {
         if (_dangerRoutine == null) return;
         StopCoroutine(_dangerRoutine);
         _dangerRoutine = null;
-        SetFillColor(hpSlider, HealthColor(_health?.Ratio ?? 1f));
+        SetFillColor(hpSlider, HealthColor(unit.HPRatio));
     }
 
     IEnumerator DangerPulse()
@@ -136,6 +164,18 @@ public class BattleHUD : MonoBehaviour
         }
     }
 
+    IEnumerator LimitPulse()
+    {
+        Color a = new Color(1f, 0.85f, 0.1f);
+        Color b = new Color(1f, 0.5f, 0.0f);
+        while (true)
+        {
+            float t = Mathf.PingPong(Time.time * 3f, 1f);
+            SetFillColor(limitSlider, Color.Lerp(a, b, t));
+            yield return null;
+        }
+    }
+
     // ── Helpers ───────────────────────────────────────────────────
 
     static Color HealthColor(float ratio)
@@ -143,6 +183,7 @@ public class BattleHUD : MonoBehaviour
 
     static void SetFillColor(Slider slider, Color color)
     {
+        if (slider == null) return;
         var fill = slider.fillRect?.GetComponent<Image>();
         if (fill != null) fill.color = color;
     }
