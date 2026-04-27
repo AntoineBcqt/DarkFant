@@ -154,11 +154,11 @@ public static class TempSceneBuilder
         var enemyAnimator = enemyPrefabGO.AddComponent<Animator>();
         // Charger le controller si déjà créé
         var controller = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
-            "Assets/Animations/Enemy/Enemy.controller");
+            "Assets/Sprites/Ennemy/ennemy_sprite_sheet_14.controller");
         if (controller != null)
             enemyAnimator.runtimeAnimatorController = controller;
         else
-            Debug.LogWarning("[DarkFant] Enemy.controller introuvable dans Assets/Animations/Enemy/ — assigne-le manuellement sur le prefab.");
+            Debug.LogWarning("[DarkFant] ennemy_sprite_sheet_14.controller introuvable — assigne-le manuellement sur le prefab.");
 
         var enemyAsset = PrefabUtility.SaveAsPrefabAsset(enemyPrefabGO, "Assets/Prefabs/Enemy.prefab");
         Object.DestroyImmediate(enemyPrefabGO);
@@ -244,6 +244,9 @@ public static class TempSceneBuilder
         hintsTMP.fontSize = 11;
         hintsTMP.color = new Color(0.7f, 0.6f, 0.9f, 0.7f);
 
+        // ── Game Over Screen ──────────────────────────────────────
+        BuildGameOverScreen(canvasGO, playerCombat);
+
         // ── Save ──────────────────────────────────────────────────
         string path = "Assets/Scenes/TempActionScene.unity";
         System.IO.Directory.CreateDirectory("Assets/Scenes");
@@ -251,6 +254,103 @@ public static class TempSceneBuilder
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Debug.Log("[DarkFant] TempActionScene construite ✓  |  ZQSD + Espace + J + K");
+    }
+
+    // ── Game Over Screen Builder ──────────────────────────────────
+
+    static void BuildGameOverScreen(GameObject canvasGO, PlayerCombat playerCombat)
+    {
+        var goGO = new GameObject("GameOverScreen");
+        goGO.transform.SetParent(canvasGO.transform, false);
+        goGO.SetActive(false);
+
+        var goRT = goGO.AddComponent<RectTransform>();
+        goRT.anchorMin = Vector2.zero;
+        goRT.anchorMax = Vector2.one;
+        goRT.offsetMin = goRT.offsetMax = Vector2.zero;
+
+        var cg = goGO.AddComponent<CanvasGroup>();
+
+        var bg = goGO.AddComponent<Image>();
+        bg.color = new Color(0f, 0f, 0f, 0.88f);
+
+        // Titre GAME OVER
+        var titleGO = new GameObject("Title");
+        titleGO.transform.SetParent(goGO.transform, false);
+        var titleTMP = titleGO.AddComponent<TextMeshProUGUI>();
+        var titleRT = titleGO.GetComponent<RectTransform>();
+        titleRT.anchorMin = new Vector2(0.2f, 0.55f);
+        titleRT.anchorMax = new Vector2(0.8f, 0.80f);
+        titleRT.offsetMin = titleRT.offsetMax = Vector2.zero;
+        titleTMP.text = "GAME OVER";
+        titleTMP.fontSize = 52;
+        titleTMP.alignment = TextAlignmentOptions.Center;
+        titleTMP.color = new Color(0.85f, 0.08f, 0.08f);
+
+        // Sous-titre
+        var subGO = new GameObject("Subtitle");
+        subGO.transform.SetParent(goGO.transform, false);
+        var subTMP = subGO.AddComponent<TextMeshProUGUI>();
+        var subRT = subGO.GetComponent<RectTransform>();
+        subRT.anchorMin = new Vector2(0.2f, 0.47f);
+        subRT.anchorMax = new Vector2(0.8f, 0.57f);
+        subRT.offsetMin = subRT.offsetMax = Vector2.zero;
+        subTMP.text = "L'obscurité vous a consumé...";
+        subTMP.fontSize = 16;
+        subTMP.alignment = TextAlignmentOptions.Center;
+        subTMP.color = new Color(0.6f, 0.5f, 0.7f);
+
+        // Bouton RETRY
+        var retryGO = CreateMenuButton(goGO.transform, "RetryButton", "RETRY", new Vector2(0.3f, 0.28f), new Vector2(0.5f, 0.38f));
+        var retryBtn = retryGO.GetComponent<Button>();
+
+        // Bouton QUIT
+        var quitGO = CreateMenuButton(goGO.transform, "QuitButton", "QUIT", new Vector2(0.5f, 0.28f), new Vector2(0.7f, 0.38f));
+        var quitBtn = quitGO.GetComponent<Button>();
+
+        var goScript = goGO.AddComponent<GameOverScreen>();
+        goScript.screenGroup = cg;
+        goScript.retryButton = retryBtn;
+        goScript.quitButton = quitBtn;
+
+        retryBtn.onClick.AddListener(goScript.OnRetry);
+        quitBtn.onClick.AddListener(goScript.OnQuit);
+
+        playerCombat.gameOverScreen = goScript;
+    }
+
+    static GameObject CreateMenuButton(Transform parent, string name, string label, Vector2 anchorMin, Vector2 anchorMax)
+    {
+        var btnGO = new GameObject(name);
+        btnGO.transform.SetParent(parent, false);
+        var btnRT = btnGO.AddComponent<RectTransform>();
+        btnRT.anchorMin = anchorMin;
+        btnRT.anchorMax = anchorMax;
+        btnRT.offsetMin = btnRT.offsetMax = Vector2.zero;
+
+        var btnImg = btnGO.AddComponent<Image>();
+        btnImg.color = new Color(0.08f, 0.04f, 0.12f, 0.95f);
+
+        var btn = btnGO.AddComponent<Button>();
+        var colors = btn.colors;
+        colors.normalColor = new Color(0.08f, 0.04f, 0.12f);
+        colors.highlightedColor = new Color(0.25f, 0.10f, 0.35f);
+        colors.pressedColor = new Color(0.50f, 0.10f, 0.10f);
+        btn.colors = colors;
+
+        var txtGO = new GameObject("Text");
+        txtGO.transform.SetParent(btnGO.transform, false);
+        var txt = txtGO.AddComponent<TextMeshProUGUI>();
+        var txtRT = txtGO.GetComponent<RectTransform>();
+        txtRT.anchorMin = Vector2.zero;
+        txtRT.anchorMax = Vector2.one;
+        txtRT.offsetMin = txtRT.offsetMax = Vector2.zero;
+        txt.text = label;
+        txt.fontSize = 18;
+        txt.alignment = TextAlignmentOptions.Center;
+        txt.color = new Color(0.85f, 0.75f, 0.95f);
+
+        return btnGO;
     }
 
     // ── Helpers ───────────────────────────────────────────────────

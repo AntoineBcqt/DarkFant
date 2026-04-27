@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Détection")]
     public float detectRange = 6f;
-    public float attackRange = 0.6f;
+    public float attackRange = 1.2f;
     public float attackCooldown = 0.8f;
 
     [Header("Patrouille")]
@@ -64,6 +64,13 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (IsDead) return;
+
+        // Chercher le joueur si pas encore trouvé
+        if (_player == null)
+        {
+            var p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) _player = p.transform;
+        }
 
         _attackTimer = Mathf.Max(0, _attackTimer - Time.deltaTime);
 

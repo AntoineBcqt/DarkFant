@@ -33,6 +33,9 @@ public class PlayerCombat : MonoBehaviour
     [Header("Invincibilité après dégâts")]
     public float iFrameDuration = 0.6f;
 
+    [Header("Game Over")]
+    public GameOverScreen gameOverScreen;
+
     // ── Runtime ──────────────────────────────────────────────────
     public float CurrentHP { get; private set; }
     public bool IsDead => CurrentHP <= 0;
@@ -205,9 +208,14 @@ public class PlayerCombat : MonoBehaviour
     private void Die()
     {
         _anim?.SetTrigger("IsDead");
-        Debug.Log("[Player] Game Over !");
-        // TODO : trigger game over screen
+        _rb.linearVelocity = Vector2.zero;
+        _moveInput = Vector2.zero;
+        _rb.bodyType = RigidbodyType2D.Kinematic; // stop physique
+        if (gameOverScreen != null)
+            gameOverScreen.ShowDelayed(1.2f);
     }
+
+    // Bloque les inputs via IsDead check dans TakeDamage (déjà fait)
 
     private void OnDrawGizmosSelected()
     {
