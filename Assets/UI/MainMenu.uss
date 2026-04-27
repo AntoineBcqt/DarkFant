@@ -6,6 +6,7 @@
     height: 100%;
     background-color: rgb(10, 10, 18);
     position: absolute;
+    overflow: hidden;
 }
 
 .stars-layer {

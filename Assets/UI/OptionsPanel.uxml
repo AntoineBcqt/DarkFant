@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/OptionsPanel.uss?fileID=7433441132597879392&amp;guid=8a025a542d7067c4d9f156853b576514&amp;type=3#OptionsPanel"/>
+    <Style src="project://database/Assets/UI/OptionsPanel.uss?fileID=7433441132597879392&amp;guid=a654db3978c88b04c91d9fda4663611c&amp;type=3#OptionsPanel"/>
     <ui:VisualElement name="options-root" style="width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(4, 2, 10, 0.85);">
         <ui:VisualElement name="options-panel" class="options-panel">
             <ui:VisualElement class="corner-crystal corner-tl"/>
