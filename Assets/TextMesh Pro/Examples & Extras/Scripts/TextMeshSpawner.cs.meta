@@ -1,2 +1,15 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 70d73292ebb884e488c7bafc7aae2702
+=======
+guid: 76c11bbcfddf44e0ba17d6c2751c8d84
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - TheFont: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes

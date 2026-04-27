@@ -1,2 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 254c09928f4a7d7499d25d6019850f5e
+=======
+guid: 53d91f98a2664f5cb9af11de72ac54ec
+timeCreated: 1487197841
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes

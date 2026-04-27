@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 9cecf24e433e03d49b5a5615e1a0c4a5
+=======
+guid: 06c79fcf35af42a4a8bb2f95a46dd3ca
+>>>>>>> Stashed changes
 SpriteAtlasImporter:
   externalObjects: {}
   textureSettings:

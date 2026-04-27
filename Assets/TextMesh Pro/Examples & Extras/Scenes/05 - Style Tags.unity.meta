@@ -1,7 +1,30 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: b6e4cf5838bdeb741a35b8765f929f50
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 70615243e2be4a81afaab9bf5d273d65
+labels:
+- Mesh
+- Text
+- Rendering
+- TextMesh
+- TextMeshPro
+- Font
+- Dynamic
+- Pro
+- Fonts
+- Advanced
+- GUI
+- Scene
+- Styles
+- Style
+- Layout
+- Atlas
+- Kerning
+DefaultImporter:
+>>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 

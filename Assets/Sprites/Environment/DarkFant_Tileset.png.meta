@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: a36544762637c4a4f8013e2534e10fba
+=======
+guid: 76c55ae80eccbae409d05aaa60e30f38
+>>>>>>> Stashed changes
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -51,7 +55,11 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   spritePixelsToUnits: 100
+=======
+  spritePixelsToUnits: 256
+>>>>>>> Stashed changes
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,10 +104,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< Updated upstream
+=======
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>> Stashed changes
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<< Updated upstream
       name: DarkFant_Tileset_0
       rect:
         serializedVersion: 2
@@ -109,14 +134,1572 @@ TextureImporter:
         height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
+=======
+      name: DarkFant_Tileset_16
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1049
+        width: 239
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+>>>>>>> Stashed changes
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
+<<<<<<< Updated upstream
       tessellationDetail: -1
       bones: []
       spriteID: 02f932bb73183b2e0800000000000000
       internalID: -2111201723943772384
+=======
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206cf491f63ddb040ad9dbe4fbf297ae
+      internalID: -1638727262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10496c8c668514b4d8a9dbfe4865fc38
+      internalID: 1597229054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_18
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c070ce199d6144a408538a5bb946b445
+      internalID: -758562922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_19
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56fdbc732dbad804d83eda18a05e2608
+      internalID: -1620855272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_20
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8be1bba3e7c8441bfff90c3bbe5f60
+      internalID: -1230138628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_21
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bdd406b9e29c934d8096e4e0466ec11
+      internalID: -197502539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_22
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21846dbcde1eb947ae233f5dbd8e1c5
+      internalID: 404613414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_24
+      rect:
+        serializedVersion: 2
+        x: 1991
+        y: 1050
+        width: 244
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5589759d45ab635489becbe609c03109
+      internalID: 1247005717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_30
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694988bfc9fb4d043a995db8ccc2f1f7
+      internalID: 298240297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_31
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7118d70f005dffc448791473a12b81f9
+      internalID: -1039298507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_32
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bfda40b695a214ea443bae59eb3356
+      internalID: -1364361915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_33
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f11e4a6ffd67f243b89c0a92988dac4
+      internalID: -2073597598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_34
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdead64effe84a5419d2d395e479deea
+      internalID: 703102579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_35
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec04bdd0016dce44b70ccd1f5fcc655
+      internalID: 1193485576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_36
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 936
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d081a55ba98762e42bea994f333c3fcd
+      internalID: -1306712238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13fdb92e7426e4478506a89692922b7
+      internalID: 589979552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_43
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5a99fd830ce124980c8b51a43d613f
+      internalID: 727021702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_44
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd137994bf693e14d80f460063f210cf
+      internalID: -1257644685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_45
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76aeafae24721bd4986e433df7a946cc
+      internalID: 1883353795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_46
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99332e1955cd9ce4984f89eefeaf6287
+      internalID: 467592426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_47
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f80069c1a7db94ea3914f3c7fa09c8
+      internalID: -156856719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_48
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a60729c9607f94e85b10663854d81e
+      internalID: 1625517794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_49
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c986bed981865e4886772cb3a080da0
+      internalID: 2134786366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_50
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfd4ec17b848a54480cea7bc259bb2a
+      internalID: 714145403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_51
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc880b73efa98a4fb0daa5e22cbe1d7
+      internalID: -1442976855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_52
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49092c56176409e4499a8590c6c971f2
+      internalID: 746571725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_53
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aefb618df579e26458f8b8d9378f8078
+      internalID: -1076100705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_54
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab241229d8ae5b4788e802abc049899
+      internalID: 1847571360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_55
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 736
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb9d111ab11fa6409feb8fc546d6546
+      internalID: 2082546301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0de4ac218bc0a04694160944f3b358d
+      internalID: 218280660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_57
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37a39e0b1ece2142bd5ad3152d04f11
+      internalID: -8470134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_58
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b743e7510ae0644aa7c3fa6c6ba5672
+      internalID: 1088438984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_59
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83b3c12d8a07984697bd76a9ff20937
+      internalID: -966207771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_60
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0cc4c7046e6b3842a396082fef55e9a
+      internalID: -1025601763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_61
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1bb3f20da483f4a9ef553d0ea554ae
+      internalID: 139187456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_62
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eba785ae1a6d3e48bbe4d6cf4fd4c8b
+      internalID: 1844666121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_63
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc370867da9fb2b4db124d01cc7e7bcc
+      internalID: 1829046649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_64
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e09842645df7e48bb7df833848793b
+      internalID: -1287173016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_65
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e674a6123b1524bba41043068d2f36
+      internalID: 1379756157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_66
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61bfe183c4564cc4e9798806d87a5e60
+      internalID: 530599081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_67
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09741987f02012f41836206cf1684d01
+      internalID: -1366725707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_68
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08ba10a13d61ad46837ed4500777fef
+      internalID: -1990835168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_69
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 536
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9caa198d3f04a346bc418b3079b76d1
+      internalID: -1018393887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522c564aaffd44c4cbe73dfeaeb163b0
+      internalID: -1971523091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_71
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f21fd4d87e59247aa7e0ebf80740c4
+      internalID: -967695753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_72
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e6a9112359f6d42a06322dc171e832
+      internalID: -546829024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_73
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78382cdb23385fc418f68446dc7fb5fb
+      internalID: 472567689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_74
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bcea6283b1e5443b7df91482696884
+      internalID: -966845382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_75
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08dd1c6576ef234b879708992e4f2f4
+      internalID: -1994175575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_76
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaebb11f3633c0a46b63918b27936924
+      internalID: -1561372339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_77
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efa16efaa42e6d4385c3aa388687612
+      internalID: -25293313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_78
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f934dc66f04fa1b4a8f319d58f7699aa
+      internalID: -1824725802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_79
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24360aa5f2c4629448fc3755c4d8fc42
+      internalID: -1120122435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_80
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f860d9c3462b3b34fb4ed5895f9d89ab
+      internalID: 842852737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_81
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41b7791df3176754f9b853b1ada5088e
+      internalID: 1157551802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_82
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9033dc032e8c3468e2d001b0cdb8e6
+      internalID: 151480959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_83
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 336
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f70e861f05ac8458e88a6a0199d536
+      internalID: -1051481704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f605a1e1f5681b4eac249843ac1f411
+      internalID: -1747124572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_85
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc8458e87f303b479c010fd15f8aae3
+      internalID: 222610102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_86
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7050e458d6f19b645a4ca760ca2935d6
+      internalID: -1097346829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_87
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bdf64639102ae44c86559998ac3051b
+      internalID: 763964828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_88
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc6d396df353af438dcbd4a488e54fe
+      internalID: -1670708863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_89
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c011b9cbfad5d6145a889be3c956c2cd
+      internalID: -362097514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_90
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca04e583a1c88b149bfb766c6ff302e6
+      internalID: -1458109795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_91
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507143bbdb95b0b46a5412c7e9db8cda
+      internalID: 1017475452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_92
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa85b0fc5a963646ba198086b04f185
+      internalID: 516579795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_93
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3655b139f458e4fabf3dcad445bcf9
+      internalID: 804682534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_94
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5406aebbc2d7c834aa734cd9d815b49b
+      internalID: 1534553098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_95
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2d27da6fbff7545911e2a8f68e0068
+      internalID: -185144128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_96
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f510021a20bcd245a3f8f52cd94ff82
+      internalID: 331002417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkFant_Tileset_97
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 136
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32400fea8abb3954a89bffd6b3052bd7
+      internalID: -1737839186
+>>>>>>> Stashed changes
       vertices: []
       indices: 
       edges: []
@@ -125,7 +1708,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<< Updated upstream
     spriteID: 
+=======
+    spriteID: 38f6970567dd8cf42b22396c349282d1
+>>>>>>> Stashed changes
     internalID: 0
     vertices: []
     indices: 
@@ -133,9 +1720,114 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
+<<<<<<< Updated upstream
       entries: []
     nameFileIdTable:
       DarkFant_Tileset_0: -2111201723943772384
+=======
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":200.0,"y":200.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      DarkFant_Tileset_0: -2111201723943772384
+      DarkFant_Tileset_1: 845602482
+      DarkFant_Tileset_10: -263752736
+      DarkFant_Tileset_11: 2041411250
+      DarkFant_Tileset_12: -856105484
+      DarkFant_Tileset_13: -1459368596
+      DarkFant_Tileset_14: 1011782432
+      DarkFant_Tileset_15: -544007358
+      DarkFant_Tileset_16: -1638727262
+      DarkFant_Tileset_17: 1597229054
+      DarkFant_Tileset_18: -758562922
+      DarkFant_Tileset_19: -1620855272
+      DarkFant_Tileset_2: -783302781
+      DarkFant_Tileset_20: -1230138628
+      DarkFant_Tileset_21: -197502539
+      DarkFant_Tileset_22: 404613414
+      DarkFant_Tileset_23: -2121375077
+      DarkFant_Tileset_24: 1247005717
+      DarkFant_Tileset_25: 1781404257
+      DarkFant_Tileset_26: 2089207386
+      DarkFant_Tileset_27: -1891357340
+      DarkFant_Tileset_28: 837767067
+      DarkFant_Tileset_29: 56446539
+      DarkFant_Tileset_3: 1787489203
+      DarkFant_Tileset_30: 298240297
+      DarkFant_Tileset_31: -1039298507
+      DarkFant_Tileset_32: -1364361915
+      DarkFant_Tileset_33: -2073597598
+      DarkFant_Tileset_34: 703102579
+      DarkFant_Tileset_35: 1193485576
+      DarkFant_Tileset_36: -1306712238
+      DarkFant_Tileset_37: 1472181528
+      DarkFant_Tileset_38: -83535773
+      DarkFant_Tileset_39: -2076943403
+      DarkFant_Tileset_4: -2008734878
+      DarkFant_Tileset_40: -966462709
+      DarkFant_Tileset_41: 965542223
+      DarkFant_Tileset_42: 589979552
+      DarkFant_Tileset_43: 727021702
+      DarkFant_Tileset_44: -1257644685
+      DarkFant_Tileset_45: 1883353795
+      DarkFant_Tileset_46: 467592426
+      DarkFant_Tileset_47: -156856719
+      DarkFant_Tileset_48: 1625517794
+      DarkFant_Tileset_49: 2134786366
+      DarkFant_Tileset_5: -413054581
+      DarkFant_Tileset_50: 714145403
+      DarkFant_Tileset_51: -1442976855
+      DarkFant_Tileset_52: 746571725
+      DarkFant_Tileset_53: -1076100705
+      DarkFant_Tileset_54: 1847571360
+      DarkFant_Tileset_55: 2082546301
+      DarkFant_Tileset_56: 218280660
+      DarkFant_Tileset_57: -8470134
+      DarkFant_Tileset_58: 1088438984
+      DarkFant_Tileset_59: -966207771
+      DarkFant_Tileset_6: -2060483668
+      DarkFant_Tileset_60: -1025601763
+      DarkFant_Tileset_61: 139187456
+      DarkFant_Tileset_62: 1844666121
+      DarkFant_Tileset_63: 1829046649
+      DarkFant_Tileset_64: -1287173016
+      DarkFant_Tileset_65: 1379756157
+      DarkFant_Tileset_66: 530599081
+      DarkFant_Tileset_67: -1366725707
+      DarkFant_Tileset_68: -1990835168
+      DarkFant_Tileset_69: -1018393887
+      DarkFant_Tileset_7: 795761847
+      DarkFant_Tileset_70: -1971523091
+      DarkFant_Tileset_71: -967695753
+      DarkFant_Tileset_72: -546829024
+      DarkFant_Tileset_73: 472567689
+      DarkFant_Tileset_74: -966845382
+      DarkFant_Tileset_75: -1994175575
+      DarkFant_Tileset_76: -1561372339
+      DarkFant_Tileset_77: -25293313
+      DarkFant_Tileset_78: -1824725802
+      DarkFant_Tileset_79: -1120122435
+      DarkFant_Tileset_8: -1519736080
+      DarkFant_Tileset_80: 842852737
+      DarkFant_Tileset_81: 1157551802
+      DarkFant_Tileset_82: 151480959
+      DarkFant_Tileset_83: -1051481704
+      DarkFant_Tileset_84: -1747124572
+      DarkFant_Tileset_85: 222610102
+      DarkFant_Tileset_86: -1097346829
+      DarkFant_Tileset_87: 763964828
+      DarkFant_Tileset_88: -1670708863
+      DarkFant_Tileset_89: -362097514
+      DarkFant_Tileset_9: 881836512
+      DarkFant_Tileset_90: -1458109795
+      DarkFant_Tileset_91: 1017475452
+      DarkFant_Tileset_92: 516579795
+      DarkFant_Tileset_93: 804682534
+      DarkFant_Tileset_94: 1534553098
+      DarkFant_Tileset_95: -185144128
+      DarkFant_Tileset_96: 331002417
+      DarkFant_Tileset_97: -1737839186
+>>>>>>> Stashed changes
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
