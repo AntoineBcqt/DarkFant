@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1518689068}
   - component: {fileID: 1518689070}
-  - component: {fileID: 1518689069}
+  - component: {fileID: 1518689071}
   m_Layer: 0
   m_Name: OptionsPanel
   m_TagString: Untagged
@@ -244,19 +244,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1518689069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518689067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f385c5addbb45c64fac237f8982d4cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OptionsPanelController
-  pixelFont: {fileID: 12800000, guid: 3e5412836c7398f4c86b37f08008fb2f, type: 3}
 --- !u!114 &1518689070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,9 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: e3fe7ff11ba39ff4d810f1e7c79a47ad, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 9521ae36305cf4d498186ca393209fda, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: b6f1f740fe607ec448b60ade09ec2f34, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 62dcbe2cbeffe064693fac1c456c72c6, type: 3}
   m_SortingOrder: 1
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -280,6 +267,19 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1518689071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518689067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1449ce03e1113744c92d4499fc35faf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsPanelController
+  pixelFont: {fileID: 12800000, guid: 24531bbf2273f494d8a01e93f32ec3fe, type: 3}
 --- !u!1 &1638150298
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,9 +290,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1638150300}
   - component: {fileID: 1638150299}
-  - component: {fileID: 1638150301}
   - component: {fileID: 1638150303}
-  - component: {fileID: 1638150302}
+  - component: {fileID: 1638150305}
+  - component: {fileID: 1638150304}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -312,9 +312,9 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: e3fe7ff11ba39ff4d810f1e7c79a47ad, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 9521ae36305cf4d498186ca393209fda, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: c24e5ff8f9921f043bd2770157293808, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 1f405b58fae70c44a82fed817c001e0f, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -338,38 +338,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1638150301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638150298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5274554178223f4b90c37a41fc16eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
-  gameSceneName: SampleScene
-  transitionDuration: 0.6
-  pixelFont: {fileID: 12800000, guid: 3e5412836c7398f4c86b37f08008fb2f, type: 3}
-  optionsPanel: {fileID: 1518689069}
---- !u!114 &1638150302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638150298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7e193bc9a3f07468acb252f3d52d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuAudio
-  menuMusic: {fileID: 8300000, guid: ccc7fd65caa0d0e4396c284c95083b5d, type: 3}
-  fadeInDuration: 2
-  fadeOutDuration: 1
-  targetVolume: 0.7
 --- !u!82 &1638150303
 AudioSource:
   m_ObjectHideFlags: 0
@@ -467,6 +435,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1638150304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638150298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22e53a7b4570e941b03014bf82d9239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuAudio
+  menuMusic: {fileID: 8300000, guid: 5207f42ac81c9dc458e6eb568a78595d, type: 3}
+  fadeInDuration: 2
+  fadeOutDuration: 1
+  targetVolume: 0.7
+--- !u!114 &1638150305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638150298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea82dde198d85324c84a1f749eb57e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  gameSceneName: SampleScene
+  transitionDuration: 0.6
+  pixelFont: {fileID: 12800000, guid: 24531bbf2273f494d8a01e93f32ec3fe, type: 3}
+  optionsPanel: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

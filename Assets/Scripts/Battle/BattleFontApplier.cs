@@ -10,7 +10,7 @@ public class BattleFontApplier : MonoBehaviour
     [Header("Glisse le TMP Font Asset ici (.asset, pas le .ttf)")]
     [SerializeField] private TMP_FontAsset pixelFont;
 
-    private void Awake()
+    private void Start()
     {
         if (pixelFont == null)
         {
