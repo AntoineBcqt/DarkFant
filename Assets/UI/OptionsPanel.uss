@@ -1,0 +1,223 @@
+/* =============================================
+   DARK FANT — Options Panel Stylesheet
+   Unity 6 UI Toolkit (.uss)
+   Police appliquée par code (OptionsPanelController)
+   ============================================= */
+
+/* OVERLAY — fond semi-transparent par-dessus le menu */
+.options-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(4, 2, 10, 0.82);
+    display: none;
+}
+
+.options-overlay.visible {
+    display: flex;
+}
+
+/* PANEL */
+.options-panel {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 28px 40px;
+    border-width: 2px;
+    border-color: rgb(58, 26, 110);
+    background-color: rgb(12, 6, 24);
+    position: relative;
+    min-width: 420px;
+    max-width: 520px;
+}
+
+/* COINS */
+.corner-crystal {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(123, 53, 204);
+}
+.corner-tl { top: -1px; left: -1px; }
+.corner-tr { top: -1px; right: -1px; }
+.corner-bl { bottom: -1px; left: -1px; }
+.corner-br { bottom: -1px; right: -1px; }
+
+/* TITRE */
+.options-title {
+    font-size: 18px;
+    color: rgb(212, 168, 255);
+    letter-spacing: 4px;
+    -unity-text-align: middle-center;
+    margin-bottom: 12px;
+}
+
+/* DIVIDER */
+.options-divider {
+    height: 1px;
+    background-color: rgb(58, 26, 110);
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+/* SECTION LABEL */
+.section-label {
+    font-size: 9px;
+    color: rgb(123, 53, 204);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+/* OPTION ROW */
+.option-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.option-label {
+    font-size: 10px;
+    color: rgb(200, 180, 230);
+    width: 110px;
+    flex-shrink: 0;
+}
+
+.option-value {
+    font-size: 10px;
+    color: rgb(123, 53, 204);
+    width: 36px;
+    -unity-text-align: middle-right;
+    flex-shrink: 0;
+}
+
+/* SLIDER */
+.option-slider {
+    flex: 1;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.option-slider > .unity-base-slider__tracker {
+    background-color: rgb(40, 20, 70);
+    border-color: rgb(80, 40, 130);
+    border-width: 1px;
+    height: 4px;
+}
+
+.option-slider > .unity-base-slider__dragger {
+    background-color: rgb(176, 106, 255);
+    border-width: 0;
+    width: 10px;
+    height: 14px;
+    border-radius: 0;
+    margin-top: -5px;
+}
+
+/* TOGGLE */
+.option-toggle {
+    margin-left: auto;
+}
+
+.option-toggle > .unity-toggle__checkmark {
+    background-color: rgb(40, 20, 70);
+    border-color: rgb(80, 40, 130);
+    border-width: 1px;
+    border-radius: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.option-toggle:checked > .unity-toggle__checkmark {
+    background-color: rgb(123, 53, 204);
+}
+
+/* DROPDOWN */
+.option-dropdown {
+    margin-left: auto;
+    min-width: 160px;
+    background-color: rgb(20, 10, 40);
+    border-color: rgb(80, 40, 130);
+    border-width: 1px;
+    border-radius: 0;
+    color: rgb(200, 180, 230);
+    font-size: 10px;
+}
+
+.option-dropdown > .unity-popup-field__input {
+    background-color: rgb(20, 10, 40);
+    border-color: rgb(80, 40, 130);
+    border-radius: 0;
+    padding: 4px 8px;
+}
+
+/* CONTRÔLES */
+.controls-grid {
+    flex-direction: column;
+}
+
+.control-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 0 4px;
+}
+
+.control-label {
+    font-size: 10px;
+    color: rgb(180, 160, 210);
+}
+
+.control-key {
+    font-size: 10px;
+    color: rgb(212, 168, 255);
+    background-color: rgb(30, 12, 58);
+    border-width: 1px;
+    border-color: rgb(80, 40, 130);
+    padding: 3px 10px;
+    -unity-text-align: middle-center;
+}
+
+/* BOUTONS BAS */
+.options-buttons {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.options-btn {
+    font-size: 11px;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 2px;
+    border-color: rgb(90, 46, 138);
+    color: rgb(200, 180, 230);
+    padding: 10px 24px;
+    margin: 0 8px;
+    cursor: default;
+    transition-duration: 0.1s;
+    transition-property: background-color, border-color, color;
+}
+
+.options-btn:hover {
+    background-color: rgba(42, 16, 64, 0.8);
+    border-color: rgb(176, 106, 255);
+    color: rgb(255, 255, 255);
+}
+
+.options-btn:active {
+    scale: 0.98;
+}
+
+.btn-apply {
+    border-color: rgb(128, 64, 192);
+    color: rgb(212, 168, 255);
+}
+
+.btn-apply:hover {
+    background-color: rgba(58, 24, 96, 0.8);
+    border-color: rgb(212, 168, 255);
+}
