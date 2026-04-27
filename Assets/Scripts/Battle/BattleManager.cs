@@ -1,1 +1,0 @@
-// Remplacé par CombatManager.cs
