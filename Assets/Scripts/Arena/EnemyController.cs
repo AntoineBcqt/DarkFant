@@ -159,11 +159,16 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.12f);
         if (_sr != null) _sr.color = Color.red;
 
-        // Dégâts
+        // Dégâts — supporte PlayerCombat (Arena) et StoryPlayerCombat (Histoire)
         if (_player != null)
         {
             var pc = _player.GetComponent<PlayerCombat>();
-            pc?.TakeDamage(damage);
+            if (pc != null) pc.TakeDamage(damage);
+            else
+            {
+                var spc = _player.GetComponent<StoryPlayerCombat>();
+                spc?.TakeDamage(damage);
+            }
         }
 
         yield return new WaitForSeconds(0.1f);

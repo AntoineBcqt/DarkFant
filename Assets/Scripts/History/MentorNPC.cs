@@ -91,7 +91,9 @@ public class MentorNPC : MonoBehaviour
             }
         }
 
-        Invoke("ResetScene", twistDuration);
+        var bt = FindFirstObjectByType<BattleTransition>();
+        if (bt != null) bt.TriggerBattleScene();
+        else Invoke("ResetScene", twistDuration);
     }
 
     void ResetScene()
