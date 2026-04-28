@@ -77,10 +77,33 @@ public static class BattleSceneBuilder
         bossGO.transform.position = new Vector3(3.2f, 0.8f, 0f);
         bossGO.transform.localScale = new Vector3(2.4f, 2.4f, 1f);
         var bossSR = bossGO.AddComponent<SpriteRenderer>();
-        bossSR.sprite = defaultSprite;
-        bossSR.color = new Color(0.70f, 0.06f, 0.06f);
+
+        // Charger le premier sprite du boss
+        var bossSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Boss/boss_histoire_battle_0");
+        if (bossSprite == null)
+            bossSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Boss/boss_histoire_battle.png");
+        if (bossSprite != null)
+        {
+            bossSR.sprite = bossSprite;
+            bossSR.color = Color.white;
+        }
+        else
+        {
+            bossSR.sprite = defaultSprite;
+            bossSR.color = new Color(0.70f, 0.06f, 0.06f);
+            Debug.LogWarning("[DarkFant] Boss sprite introuvable dans Assets/Sprites/Boss/");
+        }
         bossSR.sortingLayerName = "Units";
         bossSR.sortingOrder = 0;
+
+        // Animator du boss
+        var bossAnimator = bossGO.AddComponent<Animator>();
+        var bossController = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>("Assets/Sprites/Boss/Boss.controller");
+        if (bossController != null)
+            bossAnimator.runtimeAnimatorController = bossController;
+        else
+            Debug.LogWarning("[DarkFant] Boss.controller introuvable dans Assets/Sprites/Boss/");
+
         var bossUnit = bossGO.AddComponent<BattleUnit>();
         bossUnit.unitName = "Fléau de Rang S";
         bossUnit.isPlayer = false;

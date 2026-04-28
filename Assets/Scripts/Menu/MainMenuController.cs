@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class MainMenuController : MonoBehaviour
 {
     [Header("Scene Settings")]
-    [SerializeField] private string histoireSceneName = "SampleScene";
+    [SerializeField] private string histoireSceneName = "ExploreScene";
     [SerializeField] private string arenaSceneName = "ArenaIntroScene";
     [SerializeField] private float transitionDuration = 0.6f;
 

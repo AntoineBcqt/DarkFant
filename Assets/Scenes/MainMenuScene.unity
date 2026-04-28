@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea82dde198d85324c84a1f749eb57e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
-  histoireSceneName: SampleScene
+  histoireSceneName: ExploreScene
   arenaSceneName: ArenaIntroScene
   transitionDuration: 0.6
   pixelFont: {fileID: 12800000, guid: 24531bbf2273f494d8a01e93f32ec3fe, type: 3}
