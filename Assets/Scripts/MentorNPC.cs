@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem; // <-- 1. BIEN VÉRIFIER QUE CETTE LIGNE EST LÀ
 
 public class MentorNPC : MonoBehaviour
 {
@@ -31,6 +32,17 @@ public class MentorNPC : MonoBehaviour
         }
     }
 
+    // --- LE BLOC À AJOUTER EST ICI ---
+    void Update()
+    {
+        // On vérifie si le joueur est proche ET s'il vient d'appuyer sur E
+        if (playerInRange && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            Interact();
+        }
+    }
+    // --------------------------------
+
     public void Interact()
     {
         if (!playerInRange) return;
@@ -59,7 +71,9 @@ public class MentorNPC : MonoBehaviour
     {
         dialogueUI.SetActive(false);
 
-        this.gameObject.SetActive(false);
+        // Au lieu de détruire le mentor, on cache son visuel pour que la Coroutine/Invoke puisse finir
+        if (GetComponent<SpriteRenderer>()) GetComponent<SpriteRenderer>().enabled = false;
+        if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = false;
 
         if (globalLight != null)
         {
@@ -95,6 +109,9 @@ public class MentorNPC : MonoBehaviour
         }
 
         Debug.Log("Reset terminé. Le mentor est parti, la lumière est revenue.");
+
+        // On détruit l'objet à la toute fin
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
