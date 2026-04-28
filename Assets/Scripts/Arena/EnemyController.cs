@@ -9,6 +9,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour
 {
+    [Header("XP")]
+    public float xpReward = 20f;
+
     [Header("Stats")]
     public float maxHP = 40f;
     public float damage = 10f;
@@ -226,6 +229,7 @@ public class EnemyController : MonoBehaviour
             yield return null;
         }
 
+        ArenaXPSystem.Instance?.AddXP(xpReward);
         Destroy(gameObject);
     }
 

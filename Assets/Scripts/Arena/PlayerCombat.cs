@@ -33,11 +33,21 @@ public class PlayerCombat : MonoBehaviour
     [Header("Invincibilité après dégâts")]
     public float iFrameDuration = 0.6f;
 
+    [Header("Bonus Arena")]
+    public int projectileCount = 1;
+    public bool fanShot = false;
+    public float dashDamage = 0f;
+    public float lifeStealRatio = 0f;
+    public float auraDamage = 0f;
+    public float berserkerBonus = 0f;
+    public bool dashAlwaysInvincible = false;
+    public float hpRegenPerSec = 0f;
+
     [Header("Game Over")]
     public GameOverScreen gameOverScreen;
 
     // ── Runtime ──────────────────────────────────────────────────
-    public float CurrentHP { get; private set; }
+    public float CurrentHP { get; set; }
     public bool IsDead => CurrentHP <= 0;
 
     private Rigidbody2D _rb;
@@ -66,6 +76,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
+        // HP Regen
+        if (hpRegenPerSec > 0 && !IsDead && CurrentHP < maxHP)
+        {
+            CurrentHP = Mathf.Min(CurrentHP + hpRegenPerSec * Time.deltaTime, maxHP);
+        }
+
         _dashCooldownTimer = Mathf.Max(0, _dashCooldownTimer - Time.deltaTime);
         _swordCooldownTimer = Mathf.Max(0, _swordCooldownTimer - Time.deltaTime);
         _shootCooldownTimer = Mathf.Max(0, _shootCooldownTimer - Time.deltaTime);
