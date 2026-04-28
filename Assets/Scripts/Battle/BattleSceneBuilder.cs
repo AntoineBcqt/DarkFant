@@ -23,7 +23,7 @@ public static class BattleSceneBuilder
         cam.orthographicSize = 5f;
         cam.backgroundColor = new Color(0.04f, 0.02f, 0.06f);
         cam.clearFlags = CameraClearFlags.SolidColor;
-        cam.transform.position = new Vector3(0f, 0f, -10f);
+        cam.transform.position = new Vector3(0f, -0.5f, -10f);
         camGO.AddComponent<AudioListener>();
         camGO.AddComponent<UniversalAdditionalCameraData>();
         camGO.AddComponent<CinemachineBrain>();
@@ -57,12 +57,31 @@ public static class BattleSceneBuilder
         Sprite defaultSprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
 
         var playerGO = new GameObject("PlayerUnit");
-        playerGO.transform.position = new Vector3(-3.5f, -1.5f, 0f);
+        playerGO.transform.position = new Vector3(-4.0f, -1.0f, 0f);
+        playerGO.transform.localScale = new Vector3(3.5f, 3.5f, 1f);
         var playerSR = playerGO.AddComponent<SpriteRenderer>();
-        playerSR.sprite = defaultSprite;
-        playerSR.color = new Color(0.55f, 0.45f, 1.00f);
+
+        // Charger le sprite du joueur
+        var playerSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Player/player_sprite_sheet_0");
+        if (playerSprite == null)
+            playerSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Player/player_sprite_sheet.png");
+        if (playerSprite != null)
+        {
+            playerSR.sprite = playerSprite;
+            playerSR.color = Color.white;
+        }
+        else
+        {
+            playerSR.sprite = defaultSprite;
+            playerSR.color = new Color(0.55f, 0.45f, 1.00f);
+        }
         playerSR.sortingLayerName = "Units";
-        playerSR.sortingOrder = 1;
+        playerSR.sortingOrder = 10;
+
+        // Animator joueur
+        var playerAnimator = playerGO.AddComponent<Animator>();
+        var playerCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>("Assets/Sprites/Player/Player.controller");
+        if (playerCtrl != null) playerAnimator.runtimeAnimatorController = playerCtrl;
         var playerUnit = playerGO.AddComponent<BattleUnit>();
         playerUnit.unitName = "Exorciste";
         playerUnit.isPlayer = true;
@@ -74,8 +93,8 @@ public static class BattleSceneBuilder
         playerUnit.limitBreakMax = 100;
 
         var bossGO = new GameObject("BossUnit");
-        bossGO.transform.position = new Vector3(3.2f, 0.8f, 0f);
-        bossGO.transform.localScale = new Vector3(2.4f, 2.4f, 1f);
+        bossGO.transform.position = new Vector3(3.5f, 0.0f, 0f);
+        bossGO.transform.localScale = new Vector3(4.5f, 4.5f, 1f);
         var bossSR = bossGO.AddComponent<SpriteRenderer>();
 
         // Charger le premier sprite du boss
@@ -94,7 +113,7 @@ public static class BattleSceneBuilder
             Debug.LogWarning("[DarkFant] Boss sprite introuvable dans Assets/Sprites/Boss/");
         }
         bossSR.sortingLayerName = "Units";
-        bossSR.sortingOrder = 0;
+        bossSR.sortingOrder = 10;
 
         // Animator du boss
         var bossAnimator = bossGO.AddComponent<Animator>();
@@ -120,14 +139,17 @@ public static class BattleSceneBuilder
         // ── Canvas ───────────────────────────────────────────────
         var canvasGO = new GameObject("Canvas");
         var canvas = canvasGO.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        canvas.worldCamera = Camera.main;
+        canvas.sortingLayerName = "Background";
+        canvas.sortingOrder = -1;
         var scaler = canvasGO.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1280, 720);
         scaler.matchWidthOrHeight = 0.5f;
         canvasGO.AddComponent<GraphicRaycaster>();
 
-        // ── Background plein écran (première couche du canvas) ───
+        // ── Background plein écran — render camera pour passer derrière les sprites ───
         string bgPath = "Assets/Sprites/image_battle.jpg";
         var bgImporter = AssetImporter.GetAtPath(bgPath) as TextureImporter;
         if (bgImporter != null && bgImporter.textureType != TextureImporterType.Sprite)
