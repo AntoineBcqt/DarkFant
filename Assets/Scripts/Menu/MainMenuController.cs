@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 {
     [Header("Scene Settings")]
     [SerializeField] private string histoireSceneName = "SampleScene";
-    [SerializeField] private string arenaSceneName = "TempActionScene";
+    [SerializeField] private string arenaSceneName = "ArenaIntroScene";
     [SerializeField] private float transitionDuration = 0.6f;
 
     [Header("Font")]

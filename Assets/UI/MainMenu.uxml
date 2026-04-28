@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=f6c628c8eb3366e4e80b9826aaeb2821&amp;type=3#MainMenu"/>
+	<Style src="../UI/MainMenu.uss"/>
     <ui:VisualElement name="root" class="root">
         <ui:VisualElement name="stars-layer" class="stars-layer"/>
         <ui:VisualElement name="top-stalactites" class="stalactites-top">

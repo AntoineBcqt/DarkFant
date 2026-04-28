@@ -223,12 +223,19 @@ public class PlayerCombat : MonoBehaviour
 
     private void Die()
     {
-        _anim?.SetTrigger("IsDead");
-        _rb.linearVelocity = Vector2.zero;
         _moveInput = Vector2.zero;
-        _rb.bodyType = RigidbodyType2D.Kinematic; // stop physique
+        _rb.linearVelocity = Vector2.zero;
+        _rb.bodyType = RigidbodyType2D.Kinematic;
+        _anim?.SetTrigger("IsDead");
+
         if (gameOverScreen != null)
             gameOverScreen.ShowDelayed(1.2f);
+    }
+
+    private void LateUpdate()
+    {
+        // Bloquer tout mouvement après la mort
+        if (IsDead) _rb.linearVelocity = Vector2.zero;
     }
 
     // Bloque les inputs via IsDead check dans TakeDamage (déjà fait)
