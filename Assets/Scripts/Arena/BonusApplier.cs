@@ -35,10 +35,13 @@ public class BonusApplier : MonoBehaviour
                 _pc.swordDamage *= bonus.value;
                 _pc.projectileDamage *= bonus.value;
                 _pc.maxHP /= 2f;
-                _pc.CurrentHP = Mathf.Min(_pc.CurrentHP, _pc.maxHP); break;
+                _pc.CurrentHP = Mathf.Min(_pc.CurrentHP, _pc.maxHP);
+                _pc.TriggerScreenShake(0.5f, 0.4f);
+                Debug.Log("[Arena] Lune de Sang activée !"); break;
             case "void_step": _pc.dashAlwaysInvincible = true; Debug.Log("[Arena] dashAlwaysInvincible activé"); break;
             case "time_slow": Debug.Log("[Arena] Distorsion — pas encore implémenté en gameplay"); break;
-            case "sword_spin": Debug.Log("[Arena] Épée Tournante — pas encore implémenté en gameplay"); break;
+            case "atk_speed": _pc.atkSpeedBonus = Mathf.Min(_pc.atkSpeedBonus + bonus.value, 0.60f); Debug.Log($"[Arena] atkSpeedBonus → {_pc.atkSpeedBonus:P0}"); break;
+            case "sword_spin": _pc.swordSpinDamage += bonus.value; Debug.Log($"[Arena] swordSpinDamage → {_pc.swordSpinDamage:F1}/s"); break;
             case "ghost_dash": Debug.Log("[Arena] Dash Fantôme — pas encore implémenté en gameplay"); break;
             default: Debug.LogWarning($"[Arena] Bonus id '{bonus.id}' non géré dans BonusApplier !"); break;
         }

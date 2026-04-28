@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     [Header("Stats")]
-    public float maxHP = 100f;
+    public float maxHP = 150f;
     public float moveSpeed = 6f;
 
     [Header("Dash")]
@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Épée")]
     public float swordDamage = 25f;
-    public float swordRange = 1.4f;
+    public float swordRange = 1.8f;
     public float swordCooldown = 0.35f;
     public LayerMask enemyLayer;
 
@@ -35,6 +35,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Bonus Arena")]
     public int projectileCount = 1;
+    public float swordSpinDamage = 0f;  // Épée Tournante
     public bool fanShot = false;
     public float dashDamage = 0f;
     public float lifeStealRatio = 0f;
@@ -42,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
     public float berserkerBonus = 0f;
     public bool dashAlwaysInvincible = false;
     public float hpRegenPerSec = 0f;
+    public float atkSpeedBonus = 0f;  // réduit swordCooldown
 
     [Header("Game Over")]
     public GameOverScreen gameOverScreen;
@@ -60,6 +62,7 @@ public class PlayerCombat : MonoBehaviour
     private float _swordCooldownTimer;
     private float _shootCooldownTimer;
     private bool _isInvincible;
+    private float _regenTimer;
 
     // Flash dégâts
     private SpriteRenderer _sr;
@@ -76,10 +79,29 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        // HP Regen
-        if (hpRegenPerSec > 0 && !IsDead && CurrentHP < maxHP)
+        if (IsDead) return;
+        // HP Regen — 1 HP toutes les 3 secondes par stack
+        if (hpRegenPerSec > 0 && CurrentHP < maxHP)
         {
-            CurrentHP = Mathf.Min(CurrentHP + hpRegenPerSec * Time.deltaTime, maxHP);
+            _regenTimer += Time.deltaTime;
+            if (_regenTimer >= 3f)
+            {
+                CurrentHP = Mathf.Min(CurrentHP + hpRegenPerSec, maxHP);
+                _regenTimer = 0f;
+            }
+        }
+        if (auraDamage > 0)
+        {
+            var cols = Physics2D.OverlapCircleAll(transform.position, 1.5f, enemyLayer);
+            foreach (var col in cols)
+                col.GetComponent<EnemyController>()?.TakeDamage(auraDamage * Time.deltaTime);
+        }
+        // Épée Tournante — rayon plus petit, dégâts continus
+        if (swordSpinDamage > 0)
+        {
+            var cols = Physics2D.OverlapCircleAll(transform.position, 1.0f, enemyLayer);
+            foreach (var col in cols)
+                col.GetComponent<EnemyController>()?.TakeDamage(swordSpinDamage * Time.deltaTime);
         }
 
         _dashCooldownTimer = Mathf.Max(0, _dashCooldownTimer - Time.deltaTime);
@@ -162,7 +184,8 @@ public class PlayerCombat : MonoBehaviour
     private void TrySword()
     {
         if (_swordCooldownTimer > 0) return;
-        _swordCooldownTimer = swordCooldown;
+        float cd = swordCooldown * (1f - atkSpeedBonus);
+        _swordCooldownTimer = Mathf.Max(0.1f, cd);
         StartCoroutine(SwordRoutine());
     }
 
@@ -171,13 +194,26 @@ public class PlayerCombat : MonoBehaviour
         _anim?.SetTrigger("IsAttacking");
         if (_sr != null) _sr.color = Color.white;
 
-        // Détection ennemis dans un cercle devant le joueur
+        float dmg = swordDamage;
+        if (berserkerBonus > 0 && CurrentHP / maxHP < 0.30f) dmg *= (1f + berserkerBonus);
+
         Vector2 origin = (Vector2)transform.position + _lastMoveDir * 0.5f;
         var hits = Physics2D.OverlapCircleAll(origin, swordRange, enemyLayer);
+        float totalDealt = 0f;
         foreach (var hit in hits)
         {
             var enemy = hit.GetComponent<EnemyController>();
-            enemy?.TakeDamage(swordDamage);
+            if (enemy != null) { enemy.TakeDamage(dmg); totalDealt += dmg; }
+        }
+        if (lifeStealRatio > 0 && totalDealt > 0)
+            CurrentHP = Mathf.Min(CurrentHP + totalDealt * lifeStealRatio, maxHP);
+
+        // Hit-stop : freeze 0.05s si on a touché un ennemi
+        if (totalDealt > 0)
+        {
+            Time.timeScale = 0f;
+            yield return new WaitForSecondsRealtime(0.05f);
+            Time.timeScale = 1f;
         }
 
         yield return new WaitForSeconds(0.08f);
@@ -192,9 +228,35 @@ public class PlayerCombat : MonoBehaviour
         _shootCooldownTimer = shootCooldown;
         _anim?.SetTrigger("IsShooting");
 
+        float dmg = projectileDamage;
+        if (berserkerBonus > 0 && CurrentHP / maxHP < 0.30f) dmg *= (1f + berserkerBonus);
+
+        int count = Mathf.Max(1, projectileCount);
+        if (fanShot && count >= 3)
+        {
+            float step = 30f / (count - 1);
+            for (int i = 0; i < count; i++)
+                SpawnProjectile(Rotate(_lastMoveDir, -15f + step * i), dmg);
+        }
+        else if (count > 1)
+        {
+            float step = 10f / (count - 1);
+            for (int i = 0; i < count; i++)
+                SpawnProjectile(Rotate(_lastMoveDir, -5f + step * i), dmg);
+        }
+        else SpawnProjectile(_lastMoveDir, dmg);
+    }
+
+    private void SpawnProjectile(Vector2 dir, float dmg)
+    {
         var proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        var pb = proj.GetComponent<OccultProjectile>();
-        if (pb != null) pb.Init(_lastMoveDir, projectileSpeed, projectileDamage, enemyLayer);
+        proj.GetComponent<OccultProjectile>()?.Init(dir, projectileSpeed, dmg, enemyLayer);
+    }
+
+    private Vector2 Rotate(Vector2 v, float deg)
+    {
+        float r = deg * Mathf.Deg2Rad;
+        return new Vector2(v.x * Mathf.Cos(r) - v.y * Mathf.Sin(r), v.x * Mathf.Sin(r) + v.y * Mathf.Cos(r));
     }
 
     // ── Dégâts ───────────────────────────────────────────────────
@@ -203,6 +265,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (_isInvincible || IsDead) return;
         CurrentHP = Mathf.Max(0, CurrentHP - amount);
+        TriggerScreenShake(0.15f, 0.12f);
         StartCoroutine(IFrameRoutine());
         if (IsDead) Die();
     }
@@ -219,6 +282,30 @@ public class PlayerCombat : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
         }
         _isInvincible = false;
+    }
+
+    // ── Screen Shake ─────────────────────────────────────────────────────────
+
+    public void TriggerScreenShake(float intensity = 0.2f, float duration = 0.15f)
+    {
+        StartCoroutine(ScreenShakeRoutine(intensity, duration));
+    }
+
+    private IEnumerator ScreenShakeRoutine(float intensity, float duration)
+    {
+        var cam = Camera.main;
+        if (cam == null) yield break;
+        Vector3 originalPos = cam.transform.localPosition;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float x = Random.Range(-1f, 1f) * intensity;
+            float y = Random.Range(-1f, 1f) * intensity;
+            cam.transform.localPosition = originalPos + new Vector3(x, y, 0f);
+            yield return null;
+        }
+        cam.transform.localPosition = originalPos;
     }
 
     private void Die()

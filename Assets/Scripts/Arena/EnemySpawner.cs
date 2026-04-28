@@ -1,28 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Spawner de vagues d'ennemis style Hadès.
-/// Spawn des ennemis autour du joueur à intervalles réguliers.
-/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Références")]
     public GameObject enemyPrefab;
-    public Transform  playerTransform;
+    public Transform playerTransform;
 
-    [Header("Vagues")]
-    public int   enemiesPerWave   = 4;
+    [Header("Vagues — base")]
+    public int baseEnemiesPerWave = 5;
     public float timeBetweenWaves = 5f;
-    public float spawnRadius      = 8f;
-    public int   maxEnemiesAlive  = 10;
+    public float spawnRadius = 8f;
+    public int maxEnemiesAlive = 20;
 
-    [Header("Progression")]
-    public int   enemiesPerWaveIncrement = 1;  // +1 ennemi par vague
-    public float waveSpeedMultiplier     = 1.1f; // ennemis 10% plus rapides par vague
+    [Header("Scaling")]
+    [Tooltip("Multiplicateur du nombre d'ennemis par vague")]
+    public float waveCountMultiplier = 1.4f;   // Vague 1=5, 2=7, 3=10, 4=14...
+    [Tooltip("% vitesse ajoutée par vague (cappée à maxSpeedBonus)")]
+    public float speedBonusPerWave = 0.02f;  // 2% par vague
+    public float maxSpeedBonus = 0.30f;  // cap à +30%
+    [Tooltip("% HP ajoutés par vague")]
+    public float hpBonusPerWave = 0.15f;  // +15% HP par vague
 
-    private int   _currentWave   = 0;
-    private int   _aliveCount    = 0;
+    private int _currentWave = 0;
+    private int _aliveCount = 0;
 
     private void Start()
     {
@@ -36,41 +37,38 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnLoop()
     {
-        yield return new WaitForSeconds(2f); // délai initial
+        yield return new WaitForSeconds(2f);
 
         while (true)
         {
             yield return new WaitForSeconds(timeBetweenWaves);
 
             if (_aliveCount >= maxEnemiesAlive)
-            {
                 yield return new WaitUntil(() => _aliveCount < maxEnemiesAlive / 2);
-            }
 
             _currentWave++;
-            int count = enemiesPerWave + (_currentWave - 1) * enemiesPerWaveIncrement;
+            int count = Mathf.RoundToInt(baseEnemiesPerWave * Mathf.Pow(waveCountMultiplier, _currentWave - 1));
+            count = Mathf.Min(count, maxEnemiesAlive);
             SpawnWave(count);
         }
     }
 
     private void SpawnWave(int count)
     {
+        float speedMult = 1f + Mathf.Min(speedBonusPerWave * (_currentWave - 1), maxSpeedBonus);
+        float hpMult = 1f + hpBonusPerWave * (_currentWave - 1);
+
         for (int i = 0; i < count; i++)
         {
             if (_aliveCount >= maxEnemiesAlive) break;
-
-            Vector2 spawnPos = GetSpawnPosition();
-            var go = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-
-            // Augmenter la vitesse selon la vague
+            var go = Instantiate(enemyPrefab, GetSpawnPosition(), Quaternion.identity);
             var ec = go.GetComponent<EnemyController>();
             if (ec != null)
             {
-                ec.moveSpeed  *= Mathf.Pow(waveSpeedMultiplier, _currentWave - 1);
-                ec.chaseSpeed *= Mathf.Pow(waveSpeedMultiplier, _currentWave - 1);
+                ec.moveSpeed *= speedMult;
+                ec.chaseSpeed *= speedMult;
+                ec.maxHP *= hpMult;
             }
-
-            // Tracker la mort
             var tracker = go.AddComponent<EnemyDeathTracker>();
             tracker.OnDeath += () => _aliveCount--;
             _aliveCount++;
@@ -79,17 +77,13 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector2 GetSpawnPosition()
     {
-        // Spawn hors de l'écran mais pas trop loin
         Vector2 dir = Random.insideUnitCircle.normalized;
-        float dist  = spawnRadius + Random.Range(0f, 2f);
-        Vector2 basePos = playerTransform != null
-            ? (Vector2)playerTransform.position
-            : Vector2.zero;
-        return basePos + dir * dist;
+        float dist = spawnRadius + Random.Range(0f, 2f);
+        Vector2 base2 = playerTransform != null ? (Vector2)playerTransform.position : Vector2.zero;
+        return base2 + dir * dist;
     }
 }
 
-/// <summary>Petit composant qui notifie quand l'ennemi est détruit.</summary>
 public class EnemyDeathTracker : MonoBehaviour
 {
     public System.Action OnDeath;

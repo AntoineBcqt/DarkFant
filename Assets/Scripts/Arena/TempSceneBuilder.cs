@@ -106,7 +106,7 @@ public static class TempSceneBuilder
         var spawnerGO = new GameObject("EnemySpawner");
         var spawner = spawnerGO.AddComponent<EnemySpawner>();
         spawner.enemyPrefab = enemyAsset; spawner.playerTransform = playerGO.transform;
-        spawner.enemiesPerWave = 3; spawner.timeBetweenWaves = 4f;
+        spawner.baseEnemiesPerWave = 5; spawner.timeBetweenWaves = 4f;
         spawner.spawnRadius = 8f; spawner.maxEnemiesAlive = 8;
 
         // ── EventSystem ───────────────────────────────────────────────────────
