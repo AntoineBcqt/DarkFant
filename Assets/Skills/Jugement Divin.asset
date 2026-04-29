@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af021ba412fe6f743b54f758da977393, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ec55c61028ea0143aa7cddfb2419762, type: 3}
   m_Name: Jugement Divin
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  skillName: Jugement Divin
+  skillName: Attaque
   icon: {fileID: 0}
   description: 
-  skillType: 0
-  damageType: 1
+  skillType: 4
+  damageType: 2
   mpCost: 0
   power: 3
-  flatBonus: 0
-  skillColor: {r: 1, g: 1, b: 1, a: 1}
+  flatBonus: 20
+  skillColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   animTrigger: 
-  useMessage: 
+  useMessage: "La lumi\xE8re divine consume les t\xE9n\xE8bres !"

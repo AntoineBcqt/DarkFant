@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af021ba412fe6f743b54f758da977393, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ec55c61028ea0143aa7cddfb2419762, type: 3}
   m_Name: "Soin Sacr\xE9"
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
-  skillName: "Soin Sacr\xE9"
+  skillName: Attaque
   icon: {fileID: 0}
   description: 
   skillType: 1
@@ -22,4 +22,4 @@ MonoBehaviour:
   flatBonus: 0
   skillColor: {r: 1, g: 1, b: 1, a: 1}
   animTrigger: 
-  useMessage: 
+  useMessage: "L'Exorciste concentre son \xE9nergie sacr\xE9e pour se soigner !"

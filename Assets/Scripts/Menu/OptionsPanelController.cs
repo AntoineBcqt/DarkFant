@@ -243,8 +243,8 @@ public class OptionsPanelController : MonoBehaviour
         if (_dropdownResolution != null)
         {
             var parts = _dropdownResolution.value.Replace(" ", "").Split('x');
-            if (parts.Length == 2 && int.TryParse(parts[0], out int w) && int.TryParse(parts[1], out int h))
-                Screen.SetResolution(w, h, Screen.fullScreen);
+            //if (parts.Length == 2 && int.TryParse(parts[0], out int w) && int.TryParse(parts[1], out int h))
+            //    Screen.SetResolution(w, h, Screen.fullScreen);
         }
 
         PlayerPrefs.SetFloat("MusicVolume", _sliderMusic?.value ?? 0.7f);

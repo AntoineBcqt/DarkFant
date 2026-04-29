@@ -87,9 +87,6 @@ public class StoryPlayerCombat : MonoBehaviour
             if (_sr != null && _moveInput.x != 0)
                 _sr.flipX = _moveInput.x < 0;
         }
-
-        bool moving = _moveInput != Vector2.zero;
-        _anim?.SetBool("IsWalking", moving);
     }
 
     private void HandleInput()
@@ -101,7 +98,17 @@ public class StoryPlayerCombat : MonoBehaviour
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) x -= 1;
         if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) y += 1;
         if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) y -= 1;
-        _moveInput = new Vector2(x, y).normalized;
+
+        var newInput = new Vector2(x, y).normalized;
+        // Garder la dernière direction si on vient de relâcher (évite le flicke)
+        if (newInput.magnitude > 0.1f)
+            _moveInput = newInput;
+        else
+            _moveInput = Vector2.zero;
+
+        // Anim directement ici pour éviter le décalage de frame
+        bool isMoving = _moveInput.magnitude > 0.1f;
+        _anim?.SetBool("IsWalking", isMoving);
 
         if (Keyboard.current.jKey.wasPressedThisFrame || Keyboard.current.zKey.wasPressedThisFrame) TrySword();
         if (Keyboard.current.kKey.wasPressedThisFrame || Keyboard.current.xKey.wasPressedThisFrame) TryShoot();
